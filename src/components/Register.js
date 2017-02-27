@@ -4,7 +4,7 @@ import Nav from './Nav';
 import { getAllClients } from '../utils/developercentre-api';
 
 
-class Clients extends Component {
+class Register extends Component {
 
   constructor() {
     super()

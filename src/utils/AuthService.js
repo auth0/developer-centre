@@ -14,8 +14,7 @@ const lock = new Auth0Lock('wxFHjMw2R2HD7IrQx8Yhii7FdnZmutqE', 'unicoder.auth0.c
 
 lock.on('authenticated', authResult => {
   setIdToken(authResult.idToken);
-  window.location.reload();
-  browserHistory.push('/special');
+  browserHistory.push('/clients');
 });
 
 export function login(options) {
