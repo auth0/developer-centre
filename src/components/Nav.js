@@ -11,13 +11,6 @@ class Nav extends Component {
         <div className="navbar-header">
           <Link className="navbar-brand" to="/">Auth0 Developer Center</Link>
         </div>
-        <ul className="nav navbar-nav">
-          <li>
-            { 
-             ( isLoggedIn() ) ? <Link to="/special">Celebrity Jokes</Link> :  ''
-            }
-          </li>
-        </ul>
         <ul className="nav navbar-nav navbar-right">
           <li>
            { 

@@ -7,7 +7,6 @@ import { isLoggedIn } from '../utils/AuthService';
 class Welcome extends Component {
 
   render() {
-
     return (
       <div>
         <Nav />
@@ -23,7 +22,7 @@ class Welcome extends Component {
               </div>
               <hr />
               <div>
-                <Link className="btn btn-lg btn-success" to='/clients'> Create New Client </Link>
+                <Link className="btn btn-lg btn-success" to='/register'> Create New Client </Link>
               </div>
             </div>
            : <div><h2>Log In to Gain Access</h2></div>

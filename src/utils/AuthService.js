@@ -1,7 +1,9 @@
 import decode from 'jwt-decode';
 import { browserHistory } from 'react-router';
+import {EventEmitter} from 'events';
 import Auth0Lock from 'auth0-lock';
 const ID_TOKEN_KEY = 'id_token';
+const ACCESS_TOKEN_KEY = 'access_token';
 
 
 const lock = new Auth0Lock('wxFHjMw2R2HD7IrQx8Yhii7FdnZmutqE', 'unicoder.auth0.com', {
@@ -14,7 +16,12 @@ const lock = new Auth0Lock('wxFHjMw2R2HD7IrQx8Yhii7FdnZmutqE', 'unicoder.auth0.c
 
 lock.on('authenticated', authResult => {
   setIdToken(authResult.idToken);
-  browserHistory.push('/clients');
+  setAccessToken(authResult.accessToken);
+  lock.getUserInfo(authResult.accessToken, (error, profile) => {
+    if (error) { return setProfile({error}); }
+    setProfile(profile);
+    browserHistory.push('/clients');
+  });
 });
 
 export function login(options) {
@@ -44,6 +51,34 @@ function setIdToken(idToken) {
 
 export function getIdToken() {
   return localStorage.getItem(ID_TOKEN_KEY);
+}
+
+function clearIdToken() {
+  localStorage.removeItem(ID_TOKEN_KEY);
+}
+
+function setProfile(profile) {
+  localStorage.setItem('profile', JSON.stringify(profile));
+}
+
+export function getProfile() {
+  return JSON.parse(localStorage.getItem('profile'));
+}
+
+function clearProfile() {
+  localStorage.removeItem('profile');
+}
+
+function setAccessToken(accessToken) {
+  localStorage.setItem(ACCESS_TOKEN_KEY, accessToken);
+}
+
+function getIdToken() {
+  return localStorage.getItem(ID_TOKEN_KEY);
+}
+
+function getAccessToken() {
+  return localStorage.getItem(ACCESS_TOKEN_KEY);
 }
 
 function clearIdToken() {
