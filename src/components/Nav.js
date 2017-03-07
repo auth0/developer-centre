@@ -11,8 +11,8 @@ class Nav extends Component {
     return ( 
       <nav className="navbar navbar-default">
         <div className="navbar-header">
-          <Link className="navbar-brand" to="/"> { settings.name } Developer Portal </Link>
-          <Mailto className="navbar-brand" email={ settings.supportEmail }> Contact Support </Mailto>
+          <Link className="navbar-brand" to="/"> {settings.name} Developer Portal </Link>
+          <Mailto className="navbar-brand" email={settings.supportEmail}> Contact Support </Mailto>
         </div>
         <ul className="nav navbar-nav navbar-right">
           <li>
