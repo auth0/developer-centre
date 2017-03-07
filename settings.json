@@ -1,4 +1,5 @@
 {
     "name": "Okta",
-    "supportEmail": "support@auth0.com"
+    "supportEmail": "support@auth0.com",
+    "tenant": "https://unicoder.auth0.com"
 }

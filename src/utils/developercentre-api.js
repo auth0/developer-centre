@@ -1,12 +1,12 @@
 import axios from 'axios';
 import { getIdToken } from './AuthService';
 
-const BASE_URL = 'http://localhost:3000';
+const BASE_URL = 'http://localhost:3333';
 
 export { 
     getAllClients, 
     getClientsCreatedByLoggedInUser, 
-    registerNewClient 
+    registerNewClient
 };
 
 function getAllClients() {

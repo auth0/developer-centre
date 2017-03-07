@@ -3,11 +3,14 @@ import { Link } from 'react-router';
 import { login, logout, isLoggedIn } from '../utils/AuthService';
 import settings from '../../settings';
 import Mailto from 'react-mailto';
+import { markdown } from 'markdown';
+import { Markdown } from 'react-showdown';
 import '../App.css';
 
 class Nav extends Component {
 
   render() {
+
     return ( 
       <nav className="navbar navbar-default">
         <div className="navbar-header">

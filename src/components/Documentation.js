@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 import Nav from './Nav';
 import { getProfile } from '../utils/AuthService';
-import settings from '../../settings';
 import { getAllClients, getClientsCreatedByLoggedInUser } from '../utils/developercentre-api';
 
 
@@ -57,12 +56,7 @@ class Clients extends Component {
         <h3 className="text-center">Developer Applications</h3>
         <Link className="btn btn-lg btn-success" to='/register'>Register a New Application</Link>
         <hr/>
-
-        <div className="col-sm-12">
-          <h3> TENANT URL: <span className="badge alert-danger"> { settings.tenant } </span></h3>
-        </div>
-        
-      
+       
         { 
           (clients !== null) ?  
           clients.map((client, index) => (
@@ -80,12 +74,6 @@ class Clients extends Component {
             </div>
           )) : <div className="alert alert-danger" role="alert"><strong>Oh snap!</strong> No Clients Available </div>
         }
-
-        <hr/>
-
-        <div className="col-sm-12">
-          <a href="https://auth0.com/docs/api-auth/tutorials/implicit-grant" target="_blank" className="alert alert-danger">Learn how to get an access token from the API. Use the tenant URL shown above! </a>
-        </div>
       </div>
     );
   }
