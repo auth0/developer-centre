@@ -5,7 +5,7 @@ import { getProfile } from '../utils/AuthService';
 import { getAllClients, registerNewClient } from '../utils/developercentre-api';
 
 
-class Register extends Component {
+class RegisterApp extends Component {
 
   constructor() {
     super()
@@ -18,15 +18,17 @@ class Register extends Component {
     });
   }
 
-  componentWillMount() {
-    this.getAllClients();
-  }
-
   componentDidMount() {
+    this.getAllClients();
     this.setState({ loading: false });
   }
 
-  sendFormData = () => {
+  handleFormReset = () => {
+    this.clientName.value = "";
+    this.redirectURIs.value = "";
+  }
+
+  handleFormDataApiSync = () => {
 
     this.setState({ showLoader: true });
 
@@ -50,13 +52,10 @@ class Register extends Component {
   }
 
 
-  handleSubmit = (event) => {
+  handleFormSubmit = (event) => {
     event.preventDefault();
-    console.log("App name", this.clientName.value);
-    console.log("Redirect URIs", this.redirectURIs.value);
-    console.log("createdBy", getProfile().identities[0].user_id);
-    this.sendFormData();
-    //this.refs.create_form.getDOMNode().reset();
+    this.handleFormDataApiSync();
+    this.handleFormReset();
   }
 
   render() {
@@ -74,7 +73,7 @@ class Register extends Component {
           { showLoader ? <div className="alert alert-danger">Loading...Creating an application at the moment, please be patient.</div> : '' }
           { adding ? '' : <div className="alert alert-success"> The Client has been created successfully. View registered applications. </div> }
 
-          <form ref="create_form" onSubmit={ this.handleSubmit }>
+          <form ref="create_form" onSubmit={ this.handleFormSubmit }>
             <div className="form-group">
               <label> Application Name: </label>
               <input type="text" className="form-control" ref={(input) => { this.clientName = input; }} placeholder="Enter your name" /> 
@@ -93,4 +92,4 @@ class Register extends Component {
   }
 }
 
-export default Register;
+export default RegisterApp;

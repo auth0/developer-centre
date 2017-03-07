@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import Nav from './Nav';
+import settings from '../../settings';
 import { isLoggedIn } from '../utils/AuthService';
-
 
 class Welcome extends Component {
 
@@ -10,7 +10,7 @@ class Welcome extends Component {
     return (
       <div>
         <Nav />
-        <h3 className="text-center">Welcome to Auth0 Developer Center</h3>
+        <h3 className="text-center">Welcome to { settings.name } Developer Portal </h3>
         <hr/>
 
         <div className="col-sm-12">

@@ -1,18 +1,13 @@
 import axios from 'axios';
 import { getIdToken } from './AuthService';
 
-const BASE_URL = 'http://localhost:3333';
+const BASE_URL = 'http://localhost:3000';
 
 export { 
     getAllClients, 
     getClientsCreatedByLoggedInUser, 
     registerNewClient 
 };
-
-// function getFoodData() {
-//   const url = `${BASE_URL}/api/jokes/food`;
-//   return axios.get(url).then(response => response.data);
-// }
 
 function getAllClients() {
   const url = `${BASE_URL}/api/clients`;
