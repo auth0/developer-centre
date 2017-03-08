@@ -1,1 +1,0 @@
-Should you be very stupid
