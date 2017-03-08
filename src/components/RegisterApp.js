@@ -37,7 +37,7 @@ class RegisterApp extends Component {
       redirect_uris: this.redirectURIs.value,
       createdBy: getProfile().identities[0].user_id
     };
-
+    
     var _this = this;
 
     registerNewClient(formData).then(response => {

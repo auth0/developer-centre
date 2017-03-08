@@ -2,3 +2,8 @@
 .log {
   margin: 5px 10px 0 0;
 }
+.code {
+  border: 1px solid black;
+  background-color: #2f383d!important;
+  color: #fff !important;
+}

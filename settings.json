@@ -1,5 +1,6 @@
 {
-    "name": "Okta",
-    "supportEmail": "support@auth0.com",
+    "name": "Stormpath",
+    "supportEmail": "support@foobar.com",
     "tenant": "https://unicoder.auth0.com"
+   
 }
