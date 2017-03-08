@@ -4,7 +4,7 @@
 _Welcome Screen_
 
 ![Developer Portal All Clients](https://cdn.auth0.com/blog/portal/all-clients.png)
-_Display of All Clients created by a third party developer
+_Display of All Clients created by a third party developer_
 
 ![Developer Portal - Create Client](https://cdn.auth0.com/blog/portal/create-client.png)
 _Create Client Screen_
