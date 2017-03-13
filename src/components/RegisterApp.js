@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 import Nav from './Nav';
 import { getProfile } from '../utils/AuthService';
+import ActivityIndicator from 'react-activity-indicator';
 import { getAllClients, registerNewClient } from '../utils/developercentre-api';
 
 
@@ -70,7 +71,7 @@ class RegisterApp extends Component {
         <hr/>
        
         <div className="col-sm-12" >
-          { showLoader ? <div className="alert alert-danger">Loading...Creating an application at the moment, please be patient.</div> : '' }
+          { showLoader ? <div className="alert alert-default"><ActivityIndicator number={5} duration={200} activeColor="#d9534f" borderWidth={2} borderRadius="50%" diameter={25} /></div> : '' }
           { adding ? '' : <div className="alert alert-success"> The Client has been created successfully. View registered applications. </div> }
 
           <form ref="create_form" onSubmit={ this.handleFormSubmit }>
