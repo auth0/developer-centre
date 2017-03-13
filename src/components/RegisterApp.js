@@ -80,7 +80,7 @@ class RegisterApp extends Component {
               <input type="text" className="form-control" ref={(input) => { this.clientName = input; }} placeholder="Enter your name" required /> 
             </div>
             <div className="form-group"> 
-              <label> Redirect URIs:  </label> 
+              <label> Redirect URIs: </label> 
               <textarea className="form-control" ref={(input) => { this.redirectURIs = input; }} placeholder="Enter your Redirect URIs. If the URL is more than one, separate it with a comma." required ></textarea>
             </div>
             <div>
