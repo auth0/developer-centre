@@ -1,6 +1,7 @@
 {
     "name": "Akunam",
     "supportEmail": "support@foobar.com",
-    "tenant": "https://unicoder.auth0.com"
+    "tenant": "https://unicoder.auth0.com",
+    "apiLink": "https://akunam.com/docs/api"
    
 }
