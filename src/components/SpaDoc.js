@@ -5,7 +5,7 @@ import { getProfile } from '../utils/AuthService';
 import settings from '../../settings';
 import { getAllClients, getClientsCreatedByLoggedInUser } from '../utils/developercentre-api';
 
-class Documentation extends Component {
+class SpaDoc extends Component {
 
   constructor() {
     super()
@@ -65,15 +65,11 @@ class Documentation extends Component {
         </div>
 
         <div className="col-sm-12">
-          <span> <em> If you are building for <strong>mobile</strong> and <strong>regular server-side</strong> apps, check 👉 </em></span>
-          <Link  className="btn btn-large btn-success" to="/mobile-doc"> Mobile </Link>  &nbsp;
+          <span> I am building ... </span>
+          <Link  className="btn btn-large btn-success" to="/mobile-doc"> Mobile </Link>
+          <Link  className="btn btn-large btn-success" to="/spa-doc"> SPA </Link>
           <Link  className="btn btn-large btn-success" to="/regular-doc"> Regular Web App </Link>
-
-          <h3> I am building an SPA 👇</h3>
           <hr/>
-
-          <h3>Execute an Implicit Grant Flow</h3>
-         
         </div>
 
         <div className="col-sm-12">
@@ -145,4 +141,4 @@ class Documentation extends Component {
   }
 }
 
-export default Documentation;
+export default SpaDoc;
