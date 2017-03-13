@@ -6,7 +6,6 @@ import RegisterApp from './components/RegisterApp';
 import Documentation from './components/Documentation';
 import MobileDoc from './components/MobileDoc';
 import RegularDoc from './components/RegularDoc';
-import SpaDoc from './components/RegularDoc';
 import { Router, Route, browserHistory } from 'react-router';
 import { requireAuth } from './utils/AuthService';
 
@@ -19,7 +18,6 @@ const Root = () => {
         <Route path="/register" component={RegisterApp} onEnter={requireAuth} />
         <Route path="/mobile-doc" component={MobileDoc} onEnter={requireAuth} />
         <Route path="/regular-doc" component={RegularDoc} onEnter={requireAuth} />
-        <Route path="/spa-doc" component={SpaDoc} onEnter={requireAuth} />
         <Route path="/documentation" component={Documentation} onEnter={requireAuth} />
       </Router>
     </div>

@@ -41,7 +41,12 @@ class RegularDoc extends Component {
     const authorizationURL = `${settings.tenant}/authorize?audience=YOUR_API_AUDIENCE&scope=YOUR_SCOPE&response_type=code&client_id=WQT9iLJRSLL5u2tAxYiCTELmRwmkGHpR&redirect_uri=http://localhost:3000/login&state=YOUR_OPAQUE_VALUE`;
 
     const authorize = `${settings.tenant}/authorize??scope=appointments%20contacts&audience=appointments:api&response_type=code&client_id=WQT9iLJRSLL5u2tAxYiCTELmRwmkGHpR&redirect_uri=http://localhost:3000/login`;
-   
+
+    const code = "curl --request POST \
+  --url 'https://unicoder.auth0.com/oauth/token' \
+  --header 'content-type: application/json' \
+  --data '{'grant_type': 'authorization_code', 'client_id': 'WQT9iLJRSLL5u2tAxYiCTELmRwmkGHpR','client_secret': '-jgkWpTmh8d9DkLXbA2nyjCBy6zbnSk1nVt_pj03a8dMuI9O5d3IRKkYfoDHrjaB','code': 'YOUR_AUTHORIZATION_CODE','redirect_uri': 'http://localhost:3000/login' }'"
+
     return (
       <div>
         <Nav />
@@ -81,26 +86,26 @@ class RegularDoc extends Component {
           <p>Where: </p>
 
           <ul>
-<li>
-<p><code>audience</code>: The unique identifier of the API the web app wants to access. Use the value of the <strong>Identifier</strong> field at your <a href="https://manage.auth0.com/#/apis">API Settings</a>. If you can't see this page, enable the <strong>Enable APIs Section</strong> toggle at <a href="https://manage.auth0.com/#/account/advanced">Account Settings &gt; Advanced</a>.</p>
-</li>
-<li>
-<p><code>scope</code>: The <a href="https://auth0.com/docs/scopes">scopes</a> which you want to request authorization for. These must be separated by a space. You can request any of the <a href="https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims">standard OIDC scopes</a> about users, such as <code>profile</code> and <code>email</code>, custom claims that must conform to a namespaced format, or any scopes supported by the target API (for example, <code>read:contacts</code>). Include <code>offline_access</code> to get a refresh token (make sure that the <strong>Allow Offline Access</strong> field is enabled in the <a href="https://manage.auth0.com/#/apis">API Settings</a>).</p>
-<p><strong>NOTE</strong>: In order to improve compatibility for client applications, Auth0 will now return profile information in a <a href="https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims">structured claim format as defined by the OIDC specification</a>. This means that in order to add custom claims to ID tokens or access tokens, they must conform to a namespaced format to avoid possible collisions with standard OIDC claims. For example, if you choose the namespace <code>https://foo.com/</code> and you want to add a custom claim named <code>myclaim</code>, you would name the claim <code>https://foo.com/myclaim</code>, instead of <code>myclaim</code>.</p>
-</li>
-<li>
-<p><code>response_type</code>: Denotes the kind of credential that Auth0 will return (code vs token). For this flow, the value must be <code>code</code>.</p>
-</li>
-<li>
-<p><code>client_id</code>: Your application's Client ID. You can find this value at your <a href="https://manage.auth0.com/#/clients/WQT9iLJRSLL5u2tAxYiCTELmRwmkGHpR/settings">Client's Settings</a>.</p>
-</li>
-<li>
-<p><code>state</code>: An opaque value the client adds to the initial request that Auth0 includes when redirecting back to the client. This value must be used by the client to prevent CSRF attacks, <a href="https://auth0.com/docs/protocols/oauth-state">click here to learn more</a>.</p>
-</li>
-<li>
-<p><code>redirect_uri</code>: The URL to which Auth0 will redirect the browser after authorization has been granted by the user. The Authorization Code will be available in the <code>code</code> URL parameter. This URL must be specified as a valid callback URL under your <a href="https://manage.auth0.com/#/clients/WQT9iLJRSLL5u2tAxYiCTELmRwmkGHpR/settings">Client's Settings</a>.</p>
-</li>
-</ul>
+            <li>
+            <p><code>audience</code>: The unique identifier of the API the web app wants to access. Use the value of the <strong>Identifier</strong> field at your <a href="https://manage.auth0.com/#/apis">API Settings</a>. If you can't see this page, enable the <strong>Enable APIs Section</strong> toggle at <a href="https://manage.auth0.com/#/account/advanced">Account Settings &gt; Advanced</a>.</p>
+            </li>
+            <li>
+            <p><code>scope</code>: The <a href="https://auth0.com/docs/scopes">scopes</a> which you want to request authorization for. These must be separated by a space. You can request any of the <a href="https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims">standard OIDC scopes</a> about users, such as <code>profile</code> and <code>email</code>, custom claims that must conform to a namespaced format, or any scopes supported by the target API (for example, <code>read:contacts</code>). Include <code>offline_access</code> to get a refresh token (make sure that the <strong>Allow Offline Access</strong> field is enabled in the <a href="https://manage.auth0.com/#/apis">API Settings</a>).</p>
+            <p><strong>NOTE</strong>: In order to improve compatibility for client applications, Auth0 will now return profile information in a <a href="https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims">structured claim format as defined by the OIDC specification</a>. This means that in order to add custom claims to ID tokens or access tokens, they must conform to a namespaced format to avoid possible collisions with standard OIDC claims. For example, if you choose the namespace <code>https://foo.com/</code> and you want to add a custom claim named <code>myclaim</code>, you would name the claim <code>https://foo.com/myclaim</code>, instead of <code>myclaim</code>.</p>
+            </li>
+            <li>
+            <p><code>response_type</code>: Denotes the kind of credential that Auth0 will return (code vs token). For this flow, the value must be <code>code</code>.</p>
+            </li>
+            <li>
+            <p><code>client_id</code>: Your application's Client ID. You can find this value at your <a href="https://manage.auth0.com/#/clients/WQT9iLJRSLL5u2tAxYiCTELmRwmkGHpR/settings">Client's Settings</a>.</p>
+            </li>
+            <li>
+            <p><code>state</code>: An opaque value the client adds to the initial request that Auth0 includes when redirecting back to the client. This value must be used by the client to prevent CSRF attacks, <a href="https://auth0.com/docs/protocols/oauth-state">click here to learn more</a>.</p>
+            </li>
+            <li>
+            <p><code>redirect_uri</code>: The URL to which Auth0 will redirect the browser after authorization has been granted by the user. The Authorization Code will be available in the <code>code</code> URL parameter. This URL must be specified as a valid callback URL under your <a href="https://manage.auth0.com/#/clients/WQT9iLJRSLL5u2tAxYiCTELmRwmkGHpR/settings">Client's Settings</a>.</p>
+            </li>
+          </ul>
 
     
           <p>For example:</p>
@@ -120,52 +125,45 @@ class RegularDoc extends Component {
 
           <p>Now that you have an Authorization Code, you must exchange it for an Access Token that can be used to call your API. Using the Authorization Code (<code>code</code>) from the previous step, you will need to <code>POST</code> to the <a href="https://auth0.com/docs/api/authentication?http#authorization-code">Token URL</a>:</p>
 
+           <pre>
+              <code> { code } </code>
+          </pre>
+
           <p>Where:</p>
 
           <ul>
-<li><code>grant_type</code>: This must be <code>authorization_code</code>.</li>
-<li><code>client_id</code>: Your application's Client ID.</li>
-<li><code>client_secret</code>: Your application's Client Secret.</li>
-<li><code>code</code>: The Authorization Code received from the initial <code>authorize</code> call.</li>
-<li><code>redirect_uri</code>: The URL must match exactly the <code>redirect_uri</code> passed to <code>/authorize</code>.</li>
-</ul>
+            <li><code>grant_type</code>: This must be <code>authorization_code</code>.</li>
+            <li><code>client_id</code>: Your application's Client ID.</li>
+            <li><code>client_secret</code>: Your application's Client Secret.</li>
+            <li><code>code</code>: The Authorization Code received from the initial <code>authorize</code> call.</li>
+            <li><code>redirect_uri</code>: The URL must match exactly the <code>redirect_uri</code> passed to <code>/authorize</code>.</li>
+          </ul>
 
-<p>The response contains the <code>access_token</code>, <code>refresh_token</code>, <code>id_token</code>, and <code>token_type</code> values, for example:</p>
-
-<p>Note that <code>refresh_token</code> will only be present in the response if you included the <code>offline_access</code> scope AND enabled <strong>Allow Offline Access</strong> for your API in the Dashboard. For more information about Refresh Tokens and how to use them, see <a href="https://auth0.com/docs/tokens/preview/refresh-token">our documentation</a>.</p>
-
-<div class="panel panel-danger"><div class="panel-heading"><h3 class="panel-title">Security Warning</h3></div><div class="panel-body"><p>It is important to understand that the Authorization Code flow should only be used in cases such as a Regular Web Application where the Client Secret can be safely stored. In cases such as a Single Page Application, the Client Secret is available to the client (in the web browser), so the integrity of the Client Secret cannot be maintained. That is why the <a href="https://auth0.com/docs/api-auth/grant/implicit">Implicit Grant flow</a> is more appropriate in that case.</p>
-</div></div>
-
-<h2 id="3-call-the-api" class="anchor-heading"><span id="4" class="anchor" href="#' + anchor + '"><i class="icon icon-budicon-345"></i></span>3. Call the API</h2>
-
-<p>Once the <code>access_token</code> has been obtained it can be used to make calls to the API by passing it as a Bearer Token in the <code>Authorization</code> header of the HTTP request:</p>
-
-<h2 id="4-verify-the-token" class="anchor-heading"><span id="5" class="anchor" href="#' + anchor + '"><i class="icon icon-budicon-345"></i></span>4. Verify the Token</h2>
-
-<p>Once your API receives a request with a Bearer <code>access_token</code>, the first thing to do is to validate the token. This consists of a series of steps, and if any of these fails then the request <em>must</em> be rejected.</p>
-
-<p>For details on the validations that should be performed refer to <a href="https://auth0.com/docs/api-auth/tutorials/verify-access-token">Verify Access Tokens</a>.</p>
-
-
-
-          <h2 id="2-extract-the-access-token" className="anchor-heading"><span id="3" className="anchor" href="#' + anchor + '"><i className="icon icon-budicon-345"></i></span>2. Extract the Access Token</h2>
-          <p>After Auth0 has redirected back to the Client, you can extract the <code>access_token</code> from the hash fragment of the URL:</p>
+          <p>The response contains the <code>access_token</code>, <code>refresh_token</code>, <code>id_token</code>, and <code>token_type</code> values, for example:</p>
 
           <div>
-            <img src="https://cdn.auth0.com/blog/centre/code.jpg" width="600" />
+            <img src=" https://cdn.auth0.com/blog/pkce-response/sample.png" width="600" />
           </div>
 
-          <h2 id="3-use-the-access-token" className="anchor-heading"><span id="4" className="anchor" href="#' + anchor + '"><i className="icon icon-budicon-345"></i></span>3. Use the Access Token</h2>
-          <p>Once you have the <code>access_token</code> you can use it to make calls to the API, by passing it as a Bearer Token in the <code>Authorization</code> header of the HTTP request:</p>
+          <p></p>
+         
+          <p>Note that <code>refresh_token</code> will only be present in the response if you included the <code>offline_access</code> scope AND enabled <strong>Allow Offline Access</strong> for your API in the Dashboard. For more information about Refresh Tokens and how to use them, see <a href="https://auth0.com/docs/tokens/preview/refresh-token">our documentation</a>.</p>
+
+          <div className="panel panel-danger"><div className="panel-heading"><h3 className="panel-title">Security Warning</h3></div><div className="panel-body"><p>It is important to understand that the Authorization Code flow should only be used in cases such as a Regular Web Application where the Client Secret can be safely stored. In cases such as a Single Page Application, the Client Secret is available to the client (in the web browser), so the integrity of the Client Secret cannot be maintained. That is why the <a href="https://auth0.com/docs/api-auth/grant/implicit">Implicit Grant flow</a> is more appropriate in that case.</p>
+          </div></div>
+
+          <h2 id="3-call-the-api" class="anchor-heading"><span id="4" class="anchor" href="#' + anchor + '"><i class="icon icon-budicon-345"></i></span>3. Call the API</h2>
+
+          <p>Once the <code>access_token</code> has been obtained it can be used to make calls to the API by passing it as a Bearer Token in the <code>Authorization</code> header of the HTTP request:</p>
 
           <div>
-            <img src="https://cdn.auth0.com/blog/centre/apicall.jpg" width="600" />
+            <img src="https://cdn.auth0.com/blog/pkce-callapi/nodejs.png" width="600" />
           </div>
+          <h2 id="4-verify-the-token" class="anchor-heading"><span id="5" class="anchor" href="#' + anchor + '"><i class="icon icon-budicon-345"></i></span>4. Verify the Token</h2>
 
-          <h2 id="4-verify-the-token" className="anchor-heading"><span id="5" className="anchor" href="#' + anchor + '"><i className="icon icon-budicon-345"></i></span>4. Verify the Token</h2>
           <p>Once your API receives a request with a Bearer <code>access_token</code>, the first thing to do is to validate the token. This consists of a series of steps, and if any of these fails then the request <em>must</em> be rejected.</p>
-          <p>For details on the validations that should be performed by the API, refer to <a href="https://auth0.com/docs/api-auth/tutorials/verify-access-token" target="_blank">Verify Access Tokens</a>.</p>
+
+          <p>For details on the validations that should be performed refer to <a href="https://auth0.com/docs/api-auth/tutorials/verify-access-token">Verify Access Tokens</a>.</p>
         </div>
       </div>
     );
