@@ -77,11 +77,11 @@ class RegisterApp extends Component {
           <form ref="create_form" onSubmit={ this.handleFormSubmit }>
             <div className="form-group">
               <label> Application Name: </label>
-              <input type="text" className="form-control" ref={(input) => { this.clientName = input; }} placeholder="Enter your name" /> 
+              <input type="text" className="form-control" ref={(input) => { this.clientName = input; }} placeholder="Enter your name" required /> 
             </div>
             <div className="form-group"> 
               <label> Redirect URIs:  </label> 
-              <textarea className="form-control" ref={(input) => { this.redirectURIs = input; }} placeholder="Enter your Redirect URIs. If the URL is more than one, separate it with a comma."></textarea>
+              <textarea className="form-control" ref={(input) => { this.redirectURIs = input; }} placeholder="Enter your Redirect URIs. If the URL is more than one, separate it with a comma." required ></textarea>
             </div>
             <div>
               <input className="btn btn-small btn-info" type="submit" value="Create New Client" />
