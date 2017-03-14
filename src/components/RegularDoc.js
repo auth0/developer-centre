@@ -38,14 +38,18 @@ class RegularDoc extends Component {
 
     const { clients, allClients, loading }  = this.state;
 
-    const authorizationURL = `${settings.tenant}/authorize?audience=YOUR_API_AUDIENCE&scope=YOUR_SCOPE&response_type=code&client_id=WQT9iLJRSLL5u2tAxYiCTELmRwmkGHpR&redirect_uri=http://localhost:3000/login&state=YOUR_OPAQUE_VALUE`;
+    const clientID = this.props.params.clientID;
 
-    const authorize = `${settings.tenant}/authorize??scope=appointments%20contacts&audience=appointments:api&response_type=code&client_id=WQT9iLJRSLL5u2tAxYiCTELmRwmkGHpR&redirect_uri=http://localhost:3000/login`;
+    const apiAudience = settings.apiIdentifier;
 
-    const code = "curl --request POST \
+    const authorizationURL = `${settings.tenant}/authorize?audience=${apiAudience}&scope=YOUR_SCOPE&response_type=code&client_id=${clientID}&redirect_uri=http://localhost:3000/login&state=YOUR_OPAQUE_VALUE`;
+
+    const authorize = `${settings.tenant}/authorize?scope=appointments%20contacts&audience=appointments:api&response_type=code&client_id=${clientID}&redirect_uri=http://localhost:3000/login`;
+
+    const code = `curl --request POST \
   --url 'https://unicoder.auth0.com/oauth/token' \
   --header 'content-type: application/json' \
-  --data '{'grant_type': 'authorization_code', 'client_id': 'WQT9iLJRSLL5u2tAxYiCTELmRwmkGHpR','client_secret': '-jgkWpTmh8d9DkLXbA2nyjCBy6zbnSk1nVt_pj03a8dMuI9O5d3IRKkYfoDHrjaB','code': 'YOUR_AUTHORIZATION_CODE','redirect_uri': 'http://localhost:3000/login' }'"
+  --data '{'grant_type': 'authorization_code', 'client_id': ${clientID}, 'client_secret': '-jgkWpTmh8d9DkLXbA2nyjCBy6zbnSk1nVt_pj03a8dMuI9O5d3IRKkYfoDHrjaB','code': 'YOUR_AUTHORIZATION_CODE','redirect_uri': 'http://localhost:3000/login' }'`;
 
     return (
       <div>
@@ -54,14 +58,9 @@ class RegularDoc extends Component {
         <hr/>
 
         <div className="col-sm-12">
-          <h3> TENANT URL: <span className="badge alert-danger"> { settings.tenant } </span></h3>
-
-        </div>
-
-        <div className="col-sm-12">
           <span> <em> If you are building for <strong>mobile</strong> and <strong>spas</strong> apps, check 👉 </em></span>
-          <Link  className="btn btn-large btn-success" to="/mobile-doc"> Mobile </Link>  &nbsp;
-          <Link  className="btn btn-large btn-success" to="/documentation"> SPA </Link>
+          <Link  className="btn btn-large btn-success" to={`/mobile-doc/${clientID}`}> Mobile </Link>  &nbsp;
+          <Link  className="btn btn-large btn-success" to={`/documentation/${clientID}`}> SPA </Link>
 
           <h3> I am building a regular web app👇</h3>
           <hr/>

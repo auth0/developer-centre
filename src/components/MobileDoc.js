@@ -38,14 +38,18 @@ class MobileDoc extends Component {
 
     const { clients, allClients, loading }  = this.state;
 
-    const authorizationURL = `${settings.tenant}/authorize?audience=API_AUDIENCE&scope=SCOPE&response_type=code&client_id=WQT9iLJRSLL5u2tAxYiCTELmRwmkGHpR&code_challenge=CODE_CHALLENGE&code_challenge_method=S256&redirect_uri=http://localhost:3000/login`;
+    const clientID = this.props.params.clientID;
 
-    const authorize = `${settings.tenant}/authorize?scope=appointments%20contacts&audience=appointments:api&response_type=code&client_id=WQT9iLJRSLL5u2tAxYiCTELmRwmkGHpR&code_challenge=E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM&code_challenge_method=S256&redirect_uri=com.myclientapp://myclientapp.com/callback`;
+    const apiAudience = settings.apiIdentifier;
+
+    const authorizationURL = `${settings.tenant}/authorize?audience=${apiAudience}&scope=SCOPE&response_type=code&client_id=${clientID}&code_challenge=CODE_CHALLENGE&code_challenge_method=S256&redirect_uri=http://localhost:3000/login`;
+
+    const authorize = `${settings.tenant}/authorize?scope=appointments%20contacts&audience=appointments:api&response_type=code&client_id=${clientID}&code_challenge=E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM&code_challenge_method=S256&redirect_uri=com.myclientapp://myclientapp.com/callback`;
   
-    const code = "curl --request POST \
+    const code = `curl --request POST \
   --url 'https://unicoder.auth0.com/oauth/token' \
   --header 'content-type: application/json' \
-  --data '{'grant_type':'authorization_code','client_id': 'WQT9iLJRSLL5u2tAxYiCTELmRwmkGHpR','code_verifier': 'YOUR_GENERATED_CODE_VERIFIER','code': 'YOUR_AUTHORIZATION_CODE','redirect_uri': 'com.myclientapp://myclientapp.com/callback', }'"
+  --data '{'grant_type':'authorization_code','client_id': ${clientID},'code_verifier': 'YOUR_GENERATED_CODE_VERIFIER','code': 'YOUR_AUTHORIZATION_CODE','redirect_uri': 'com.myclientapp://myclientapp.com/callback', }'`;
 
 
     return (
@@ -61,8 +65,8 @@ class MobileDoc extends Component {
 
         <div className="col-sm-12">
           <span> <em> If you are building for <strong>SPAs</strong> and <strong>regular server-side</strong> apps, check 👉 </em></span>
-          <Link  className="btn btn-large btn-success" to="/documentation"> SPA </Link> &nbsp;
-          <Link  className="btn btn-large btn-success" to="/regular-doc"> Regular Web App </Link>
+          <Link  className="btn btn-large btn-success" to={`/documentation/${clientID}`}> SPA </Link> &nbsp;
+          <Link  className="btn btn-large btn-success" to={`/regular-doc/${clientID}`}> Regular Web App </Link>
 
           <h3> I am building a mobile app 👇</h3>
           <hr/>

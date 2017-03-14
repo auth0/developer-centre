@@ -13,9 +13,9 @@ class Nav extends Component {
 
   render() {
 
-    const profileImage = getProfile().picture;
-    const username = getProfile().nickname;
-    const email = getProfile().name;
+    const profileImage = isLoggedIn() ? getProfile().picture : null;
+    const username = isLoggedIn() ? getProfile().nickname : null;
+    const email = isLoggedIn() ? getProfile().name : null;
 
     return ( 
       <nav className="navbar navbar-default">

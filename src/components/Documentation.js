@@ -54,8 +54,8 @@ class Documentation extends Component {
 
         <div className="col-sm-12">
           <span> <em> If you are building for <strong>mobile</strong> and <strong>regular server-side</strong> apps, check 👉 </em></span>
-          <Link  className="btn btn-large btn-success" to="/mobile-doc"> Mobile </Link>  &nbsp;
-          <Link  className="btn btn-large btn-success" to="/regular-doc"> Regular Web App </Link>
+          <Link  className="btn btn-large btn-success" to={`/mobile-doc/${clientID}`}> Mobile </Link>  &nbsp;
+          <Link  className="btn btn-large btn-success" to={`/regular-doc/${clientID}`}> Regular Web App </Link>
 
           <h3> I am building an SPA 👇</h3>
           <hr/>
