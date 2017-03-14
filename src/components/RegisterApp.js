@@ -10,7 +10,13 @@ class RegisterApp extends Component {
 
   constructor() {
     super()
-    this.state = { clients: [], loading: true, adding: true, showLoader: false };
+    this.state = { 
+      clients: [], 
+      loading: true, 
+      adding: true, 
+      showLoader: false, 
+      errorMessage: ''
+    };
   }
 
   getAllClients() {
@@ -29,6 +35,25 @@ class RegisterApp extends Component {
     this.redirectURIs.value = "";
   }
 
+  handleFormValidation() {
+    var redirectURIs = this.redirectURIs.value;
+
+    var redirectUrisArray = (redirectURIs.indexOf(",") > 0 ) ? redirectURIs.split(",") : [redirectURIs];
+
+    var isValid = redirectUrisArray.every(x => {
+      var pattern = /(https?:\/\/(?:www\.|(?!www))[^\s\.]+\.[^\s]{2,}|www\.[^\s]+\.[^\s]{2,})/g;
+      return pattern.test(x);
+    });
+
+    if(!isValid) {
+      this.setState({ errorMessage: 'Your RedirectURIs are not valid URLs. Please, try again'});
+      return false;
+    } else {
+      this.setState({ errorMessage: '' });
+      return true;
+    }
+  }
+
   handleFormDataApiSync = () => {
 
     this.setState({ showLoader: true });
@@ -38,18 +63,21 @@ class RegisterApp extends Component {
       redirect_uris: this.redirectURIs.value,
       createdBy: getProfile().identities[0].user_id
     };
-    
-    var _this = this;
 
-    registerNewClient(formData).then(response => {
-      _this.setState({ adding: false });
-      console.log("Data", response.data);
-      console.log("Status", response.status);
-      console.log("Status Text", response.statusText);
-      console.log("Headers", response.headers);
-      console.log("Config", response.config);
-      _this.setState({ showLoader: false });
-    });
+    if(this.handleFormValidation()) {
+      var _this = this;
+      registerNewClient(formData).then(response => {
+        _this.setState({ adding: false });
+        console.log("Data", response.data);
+        console.log("Status", response.status);
+        console.log("Status Text", response.statusText);
+        console.log("Headers", response.headers);
+        console.log("Config", response.config);
+        _this.setState({ showLoader: false });
+      });
+    } else {
+      this.setState({ showLoader: false });
+    }
   }
 
 
@@ -61,7 +89,7 @@ class RegisterApp extends Component {
 
   render() {
 
-    const { clients, loading, adding, showLoader }  = this.state;
+    const { clients, loading, adding, showLoader, errorMessage }  = this.state;
 
     return (
       <div>
@@ -82,6 +110,7 @@ class RegisterApp extends Component {
             <div className="form-group"> 
               <label> Redirect URIs: </label> 
               <textarea className="form-control" ref={(input) => { this.redirectURIs = input; }} placeholder="Enter your Redirect URIs. If the URL is more than one, separate it with a comma." required ></textarea>
+              { errorMessage ? <span style={{ 'margin-top': '10px' }} className="badge alert-danger"> { errorMessage } </span> : '' }
             </div>
             <div>
               <input className="btn btn-small btn-info" type="submit" value="Create New Client" />
