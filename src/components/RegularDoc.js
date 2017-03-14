@@ -68,7 +68,6 @@ class RegularDoc extends Component {
           <h3>Execute an Authorization Code Grant Flow</h3>
         </div>
 
-        
 
         <div className="col-sm-12">
           <div className="jumbotron text-center">

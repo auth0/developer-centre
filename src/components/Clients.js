@@ -6,7 +6,7 @@ import settings from '../../settings';
 import Mailto from 'react-mailto';
 import ActivityIndicator from 'react-activity-indicator';
 import { getAllClients, getClientsCreatedByLoggedInUser, deleteClient } from '../utils/developercentre-api';
-
+import '../App.css';
 
 class Clients extends Component {
 
@@ -76,8 +76,11 @@ class Clients extends Component {
           <Nav />
           <h3 className="text-center">Developer Applications</h3>
           <Link className="btn btn-lg btn-success" to='/register'>Register a New Application</Link> &nbsp;
-          <Link className="btn btn-lg btn-success" to='/documentation'> API Documentation</Link>
           <hr/>
+
+          <div className="doc-link">
+            <span className="badge alert-info"><a href={settings.apiDocLink} target="_blank">Check this link for documentation on how to consume our API </a></span> 
+          </div>
 
           <div className="col-sm-12">
             { showLoader ? <div className="alert alert-default"><ActivityIndicator number={5} duration={200} activeColor="#d9534f" borderWidth={2} borderRadius="50%" diameter={25} /></div> : '' }
