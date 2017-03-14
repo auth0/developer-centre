@@ -20,7 +20,7 @@ lock.on('authenticated', authResult => {
   lock.getUserInfo(authResult.accessToken, (error, profile) => {
     if (error) { return setProfile({error}); }
     setProfile(profile);
-    browserHistory.push('/clients');
+    browserHistory.push('/');
   });
 });
 

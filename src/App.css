@@ -7,3 +7,40 @@
   background-color: #2f383d!important;
   color: #fff !important;
 }
+
+.profile-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%; /*don't forget prefixes*/
+  margin: 3px 3px ;
+}
+
+.profile-image-lg {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%; /*don't forget prefixes*/
+  margin: 3px 3px ;
+}
+
+.navprofile .navproflie:hover, .navprofile:click {
+  text-decoration: none;
+}
+
+.navbar-login
+{
+    width: 305px;
+    padding: 10px;
+    padding-bottom: 0px;
+}
+
+.navbar-login-session
+{
+    padding: 10px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+}
+
+.icon-size
+{
+    font-size: 87px;
+}

@@ -82,9 +82,6 @@ class Clients extends Component {
             { !loaded ? <div className="alert alert-default"><ActivityIndicator number={5} duration={200} activeColor="#0070bf" borderWidth={2} borderRadius="50%" diameter={25} /></div> : '' }
           </div>
 
-
-          
-        
           { 
             (clients !== null) ?  
             clients.map((client, index) => (

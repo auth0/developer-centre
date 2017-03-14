@@ -14,7 +14,6 @@ const Root = () => {
     <div className="container">
       <Router history={browserHistory}>
         <Route path="/" component={Welcome}/>
-        <Route path="/clients" component={Clients} onEnter={requireAuth} />
         <Route path="/register" component={RegisterApp} onEnter={requireAuth} />
         <Route path="/mobile-doc" component={MobileDoc} onEnter={requireAuth} />
         <Route path="/regular-doc" component={RegularDoc} onEnter={requireAuth} />
