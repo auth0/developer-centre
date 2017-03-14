@@ -76,7 +76,6 @@ class Clients extends Component {
           <hr/>
 
           <div className="col-sm-12">
-            <h3> TENANT URL: <span className="badge alert-danger"> { settings.tenant } </span></h3>
             { showLoader ? <div className="alert alert-default"><ActivityIndicator number={5} duration={200} activeColor="#d9534f" borderWidth={2} borderRadius="50%" diameter={25} /></div> : '' }
             { deleted ? '' : <div className="alert alert-success"> The Client has been deleted successfully. View registered applications. </div> }
             { !loaded ? <div className="alert alert-default"><ActivityIndicator number={5} duration={200} activeColor="#0070bf" borderWidth={2} borderRadius="50%" diameter={25} /></div> : '' }
