@@ -51,7 +51,7 @@ class Nav extends Component {
                                         <p className="text-left"><strong>Hi, { username }</strong></p>
                                         <p className="text-left small">{ email }</p>
                                         <p className="text-left">
-                                            <Link to="/clients" className="btn btn-primary btn-block btn-sm">View Clients</Link>
+                                            <Link to="/" className="btn btn-primary btn-block btn-sm">View Clients</Link>
                                         </p>
                                     </div>
                                 </div>
