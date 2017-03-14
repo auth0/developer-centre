@@ -101,11 +101,6 @@ class Clients extends Component {
             )) : <div className="alert alert-danger" role="alert"><strong>Oh snap!</strong> No Clients Available </div>
           }
 
-          <hr/>
-
-          <div className="col-sm-12">
-            <a href="https://auth0.com/docs/api-auth/tutorials/implicit-grant" target="_blank" className="alert alert-danger">Learn how to get an access token from the API. Use the tenant URL shown above! </a>
-          </div>
         </div>
     );
   }
