@@ -46,26 +46,11 @@ class Documentation extends Component {
 
     const authorize = `${settings.tenant}/authorize?scope=appointments%20contacts&audience=appointments:api&response_type=id_token%20token&client_id=${clientID}&redirect_uri=https://YOUR_APP/callback`;
 
-    if (loading) {
-      return (
-        <div className="col-sm-12">
-          <div className="jumbotron text-center">
-            <h2><i className="fa fa-spinner"></i> Fetching Clients....</h2>
-          </div>
-        </div>
-      )
-    }
-
     return (
       <div>
         <Nav />
         <h3 className="text-center"> API Documentation </h3>
         <hr/>
-
-        <div className="col-sm-12">
-          <h3> TENANT URL: <span className="badge alert-danger"> { settings.tenant } </span></h3>
-
-        </div>
 
         <div className="col-sm-12">
           <span> <em> If you are building for <strong>mobile</strong> and <strong>regular server-side</strong> apps, check 👉 </em></span>
