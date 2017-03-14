@@ -59,11 +59,6 @@ class MobileDoc extends Component {
         <hr/>
 
         <div className="col-sm-12">
-          <h3> TENANT URL: <span className="badge alert-danger"> { settings.tenant } </span></h3>
-
-        </div>
-
-        <div className="col-sm-12">
           <span> <em> If you are building for <strong>SPAs</strong> and <strong>regular server-side</strong> apps, check 👉 </em></span>
           <Link  className="btn btn-large btn-success" to={`/documentation/${clientID}`}> SPA </Link> &nbsp;
           <Link  className="btn btn-large btn-success" to={`/regular-doc/${clientID}`}> Regular Web App </Link>
