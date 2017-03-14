@@ -117,7 +117,7 @@ class Documentation extends Component {
 
           <pre>
             <code className="language-html hljs xml">
-            <span className="tag">&lt;<span class="name">a</span> <span className="attr">href</span>=<span className="string">{ authorize }</span>&gt;</span>
+            <span className="tag">&lt;<span className="name">a</span> <span className="attr">href</span>=<span className="string">{ authorize }</span>&gt;</span>
             Sign In
           <span className="tag">&lt;/<span className="name">a</span>&gt;</span>
           </code></pre>

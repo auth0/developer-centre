@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 import Nav from './Nav';
 import { getProfile } from '../utils/AuthService';
+import { browserHistory } from 'react-router';
 import ActivityIndicator from 'react-activity-indicator';
 import { getAllClients, registerNewClient } from '../utils/developercentre-api';
 
@@ -74,6 +75,7 @@ class RegisterApp extends Component {
         console.log("Headers", response.headers);
         console.log("Config", response.config);
         _this.setState({ showLoader: false });
+        setTimeout( () => { browserHistory.push('/documentation'); } , 1000 );
       });
     } else {
       this.setState({ showLoader: false });
@@ -110,7 +112,7 @@ class RegisterApp extends Component {
             <div className="form-group"> 
               <label> Redirect URIs: </label> 
               <textarea className="form-control" ref={(input) => { this.redirectURIs = input; }} placeholder="Enter your Redirect URIs. If the URL is more than one, separate it with a comma." required ></textarea>
-              { errorMessage ? <span style={{ 'margin-top': '10px' }} className="badge alert-danger"> { errorMessage } </span> : '' }
+              { errorMessage ? <span style={{ 'marginTop': '10px' }} className="badge alert-danger"> { errorMessage } </span> : '' }
             </div>
             <div>
               <input className="btn btn-small btn-info" type="submit" value="Create New Client" />
