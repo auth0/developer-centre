@@ -26,6 +26,13 @@
   text-decoration: none;
 }
 
+.logo-img {
+  margin: 12px 1px 0 10px;
+  width: 150px;
+  height: auto;
+  border: 0px solid black;
+}
+
 .navbar-login
 {
     width: 305px;

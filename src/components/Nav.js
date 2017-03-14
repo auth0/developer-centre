@@ -11,11 +11,7 @@ import '../App.css';
 
 class Nav extends Component {
 
-
-
   render() {
-
-    console.log("Get Profile", getProfile());
 
     const profileImage = getProfile().picture;
     const username = getProfile().nickname;
@@ -24,7 +20,10 @@ class Nav extends Component {
     return ( 
       <nav className="navbar navbar-default">
         <div className="navbar-header">
-          <Link className="navbar-brand" to="/"> {settings.name} Developer Portal </Link>
+          <div className="navbar navbar-nav navbar-left">
+            <img src={settings.logoUrl} className="pull-left logo-img"/>
+            <Link className="navbar-brand" to="/"> {settings.name} Developer Portal </Link>
+          </div>
           <Mailto className="navbar-brand" email={settings.supportEmail}> Contact Support </Mailto>
         </div>
         <ul className="nav navbar-nav navbar-right">
