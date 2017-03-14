@@ -27,19 +27,19 @@ class Nav extends Component {
           <Mailto className="navbar-brand" email={settings.supportEmail}> Contact Support </Mailto>
         </div>
         <ul className="nav navbar-nav navbar-right">
-          <li>
+        
            { 
              (isLoggedIn()) ? 
              ( <div>
              
-                <li className="dropdown">
+                <li className="dropdown" key={2}>
                   <a href="#" className="dropdown-toggle navprofile" data-toggle="dropdown">
                     <strong>{ username }</strong>&nbsp;
                     <span className="glyphicon glyphicon-chevron-down"></span>&nbsp;
                     <img src={profileImage} className="profile-image" />
                   </a>
                   <ul className="dropdown-menu">
-                        <li>
+                        <li key={3}>
                             <div className="navbar-login">
                                 <div className="row">
                                     <div className="col-lg-4">
@@ -57,8 +57,8 @@ class Nav extends Component {
                                 </div>
                             </div>
                         </li>
-                        <li className="divider"></li>
-                        <li>
+                        <li className="divider" key={4}></li>
+                        <li key={5}>
                             <div className="navbar-login navbar-login-session">
                                 <div className="row">
                                     <div className="col-lg-12">
@@ -73,7 +73,6 @@ class Nav extends Component {
                   </li>
              </div> ) :  ( <button className="btn btn-info log" onClick={() => login()}>Log In</button> )
            }
-          </li>
         </ul>
       </nav>
     );

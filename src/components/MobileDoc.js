@@ -84,7 +84,7 @@ class MobileDoc extends Component {
           </div>
 
 
-          <h2 id="2-create-a-code-challenge" class="anchor-heading"><span id="3" class="anchor" href="#' + anchor + '"><i class="icon icon-budicon-345"></i></span>2. Create a Code Challenge</h2>
+          <h2 id="2-create-a-code-challenge" className="anchor-heading"><span id="3" className="anchor" href="#' + anchor + '"><i className="icon icon-budicon-345"></i></span>2. Create a Code Challenge</h2>
           <p>Using the <code>code_verifier</code>, generate a <code>code_challenge</code> that will be sent in the authorization request.</p>
 
           <div>
@@ -92,7 +92,7 @@ class MobileDoc extends Component {
             <h6><em>Node.js</em></h6>
           </div>
 
-          <h2 id="3-get-the-user-s-authorization" class="anchor-heading"><span id="4" class="anchor" href="#' + anchor + '"><i class="icon icon-budicon-345"></i></span>3. Get the Users Authorization</h2>
+          <h2 id="3-get-the-user-s-authorization" className="anchor-heading"><span id="4" className="anchor" href="#' + anchor + '"><i className="icon icon-budicon-345"></i></span>3. Get the Users Authorization</h2>
           <p>To begin an Authorization Code Grant flow, your native application should first send the user to the <a href="https://auth0.com/docs/api/authentication#authorization-code-grant-pkce-">authorization URL</a> including the <code>code_challenge</code> and the method used to generate it.</p>
 
            <pre>
@@ -142,13 +142,13 @@ class MobileDoc extends Component {
 
           <pre>
             <code className="language-html hljs xml">
-            <span className="tag">&lt;<span class="name">a</span> <span className="attr">href</span>=<span className="string">{ authorize }</span>&gt;</span>
+            <span className="tag">&lt;<span className="name">a</span> <span className="attr">href</span>=<span className="string">{ authorize }</span>&gt;</span>
             Sign In
           <span className="tag">&lt;/<span className="name">a</span>&gt;</span>
           </code>
           </pre>
 
-          <h2 id="4-exchange-the-authorization-code-for-an-access-token" class="anchor-heading"><span id="5" class="anchor" href="#' + anchor + '"><i class="icon icon-budicon-345"></i></span>4. Exchange the Authorization Code for an Access Token</h2>
+          <h2 id="4-exchange-the-authorization-code-for-an-access-token" className="anchor-heading"><span id="5" className="anchor" href="#' + anchor + '"><i className="icon icon-budicon-345"></i></span>4. Exchange the Authorization Code for an Access Token</h2>
 
           <p>Now that you have an Authorization Code, you must exchange it for an Access Token that can be used to call your API. Using the Authorization Code (<code>code</code>) from the previous step, you will need to <code>POST</code> to the <a href="https://auth0.com/docs/api/authentication#authorization-code-pkce-">Token URL</a> sending also the <code>code_verifier</code>:</p>
 
