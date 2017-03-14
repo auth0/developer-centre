@@ -38,10 +38,13 @@ class Documentation extends Component {
 
     const { clients, allClients, loading }  = this.state;
 
-    const authorizationURL = `${settings.tenant}/authorize?audience={API_AUDIENCE}&scope={SCOPE}&response_type={RESPONSE_TYPE}&client_id=YOUR_CLIENT_ID&redirect_uri=https://YOUR_APP/callback&nonce={CRYPTOGRAPHIC_NONCE}state={OPAQUE_VALUE}`;
+    const clientID = this.props.params.clientID;
 
-    const authorize = `${settings.tenant}/authorize?scope=appointments%20contacts&audience=appointments:api&response_type=id_token%20token&client_id=YOUR_CLIENT_ID&redirect_uri=https://YOUR_APP/callback`;
-    console.log(clients);
+    const apiAudience = settings.apiIdentifier;
+
+    const authorizationURL = `${settings.tenant}/authorize?audience=${apiAudience}&scope={SCOPE}&response_type={RESPONSE_TYPE}&client_id=${clientID}&redirect_uri=https://YOUR_APP/callback&nonce={CRYPTOGRAPHIC_NONCE}state={OPAQUE_VALUE}`;
+
+    const authorize = `${settings.tenant}/authorize?scope=appointments%20contacts&audience=appointments:api&response_type=id_token%20token&client_id=${clientID}&redirect_uri=https://YOUR_APP/callback`;
 
     if (loading) {
       return (

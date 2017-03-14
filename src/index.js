@@ -16,8 +16,11 @@ const Root = () => {
         <Route path="/" component={Welcome}/>
         <Route path="/register" component={RegisterApp} onEnter={requireAuth} />
         <Route path="/mobile-doc" component={MobileDoc} onEnter={requireAuth} />
+        <Route path="/mobile-doc/:clientID" component={MobileDoc} onEnter={requireAuth} />
         <Route path="/regular-doc" component={RegularDoc} onEnter={requireAuth} />
+        <Route path="/regular-doc/:clientID" component={RegularDoc} onEnter={requireAuth} />
         <Route path="/documentation" component={Documentation} onEnter={requireAuth} />
+        <Route path="/documentation/:clientID" component={Documentation} onEnter={requireAuth} />
       </Router>
     </div>
   )

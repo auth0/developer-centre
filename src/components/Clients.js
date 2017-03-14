@@ -40,6 +40,10 @@ class Clients extends Component {
   
   }
 
+  viewDocumentation(clientID) {
+
+  }
+
   handleApplicationDeletion(clientID) {
 
     this.setState({ showLoader: true });
@@ -93,7 +97,8 @@ class Clients extends Component {
                     <p><span className="badge alert-info"> Client ID: </span><strong> { client.client_id } </strong></p>
                     <p><span className="badge alert-danger"> Client Secret: </span><strong> { client.client_secret } </strong></p>
                     <p><span className="badge alert-success"> Redirect URIs: </span><strong> { client.redirect_uris.join(',') } </strong></p>
-                    <button onClick={() => this.deleteApplication(client.client_id)}> Delete Client </button>
+                    <button onClick={() => this.deleteApplication(client.client_id)} className="btn btn-danger"> Delete Client </button>&nbsp;
+                    <Link to={`/documentation/${client.client_id}`} className="btn btn-default"> View Documentation </Link>
                   </div>
                 </div>
               </div>

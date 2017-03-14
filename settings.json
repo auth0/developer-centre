@@ -3,5 +3,6 @@
     "supportEmail": "support@foobar.com",
     "tenant": "https://unicoder.auth0.com",
     "apiLink": "https://akunam.com/docs/api",
-    "logoUrl": "https://auth0.com/pages/homepage/img/logo-nvidia-color.svg"
+    "logoUrl": "https://auth0.com/pages/homepage/img/logo-nvidia-color.svg",
+    "apiIdentifier": "https://your-api-endpoint.com"
 }
